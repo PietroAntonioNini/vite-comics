@@ -1,5 +1,6 @@
 <script>
 import AppBanner from './AppBanner.vue';
+import AppBannerBottom from './AppBannerBottom.vue';
 
 
 
@@ -9,6 +10,7 @@ export default {
 
     components: {
         AppBanner,
+        AppBannerBottom,
     },
 
     data() {
@@ -38,13 +40,13 @@ export default {
 </script>
 
 <template>
-    
-    <AppBanner></AppBanner>
-
     <footer>
+        
+        <AppBanner></AppBanner>
 
         <div class="footer-links">
-            <div class="column-left">
+            <div class="row">
+                <div class="column-left">
                 <div>
                     <div v-for="link in links.slice(0,1)">
                         <h3> {{ link.title }} </h3>
@@ -68,28 +70,34 @@ export default {
                         </ul>
                     </div>
                 </div>
+                </div>
+
+                <div class="column-center" v-for="link in links.slice(2,3)">
+                    <h3> {{ link.title }} </h3>
+
+                    <ul>
+                        <li v-for="sublink in link.links">
+                            {{ sublink }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="column-right" v-for="link in links.slice(3,4)">
+                    <h3> {{ link.title }} </h3>
+
+                    <ul>
+                        <li v-for="sublink in link.links">
+                            {{ sublink }}
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="column-center" v-for="link in links.slice(2,3)">
-                <h3> {{ link.title }} </h3>
-
-                <ul>
-                    <li v-for="sublink in link.links">
-                        {{ sublink }}
-                    </li>
-                </ul>
-            </div>
-
-            <div class="column-right" v-for="link in links.slice(3,4)">
-                <h3> {{ link.title }} </h3>
-
-                <ul>
-                    <li v-for="sublink in link.links">
-                        {{ sublink }}
-                    </li>
-                </ul>
-            </div>
+            <img src="/img/dc-logo-bg.png" alt="logo DC">
         </div>
+
+        <AppBannerBottom></AppBannerBottom>
+
     </footer>
 </template>
 
@@ -98,51 +106,68 @@ export default {
 @use '../styles/mixins' as *;
 
 footer {
-    height: 380px;
+    height: 640px;
 
     display: flex;
     align-items: center;
+    position: relative;
 
     background-image: url(/img/footer-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
 
     .footer-links {
         @include container;
 
         display: flex;
-        gap: 55px;
+        align-items: center;
+        gap: 400px;
 
-        .column-left {
+        .row {
+
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+            align-items: flex-start;
+            gap: 55px;
 
-        h3 {
-            margin-bottom: 10px;
+            margin-top: 20px;
 
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+            .column-left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
 
-        ul {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            list-style-type: none;
+            h3 {
+                margin-bottom: 10px;
 
-            li {
-                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
 
-                font-size: 12px;
-                color: #959595;
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                list-style-type: none;
 
-                &:hover {
-                    color: white;
+                li {
+                    cursor: pointer;
+
+                    font-size: 10px;
+                    color: #959595;
+
+                    &:hover {
+                        color: white;
+                    }
                 }
             }
+        }
+
+        img {
+            width: 550px;
+            margin-top: 60px;
         }
     }
 }

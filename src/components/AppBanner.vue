@@ -32,8 +32,8 @@ export default {
 </script>
 
 <template>
-    <div id="banner">
-        <div id="banner-container">
+    <div id="banner-top">
+        <div class="banner-container-top">
             <ul>
                 <li v-for="article in articles">
                     <img :src="article.img" alt="immagini articoli">
@@ -48,10 +48,14 @@ export default {
 @use '../styles/variables' as *;
 @use '../styles/mixins' as *;
 
-#banner {
+#banner-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: $primaryColor;
 
-    #banner-container {
+    .banner-container-top {
         @include container;
 
         ul {
