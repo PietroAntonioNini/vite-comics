@@ -12,7 +12,9 @@ export default {
 
 <template>
     <main>
-        <span> &rightarrow; Content goes here &leftarrow; </span>
+        <div>
+            <span> &rightarrow; Content goes here &leftarrow; </span>
+        </div>
     </main>
 </template>
 
@@ -21,16 +23,18 @@ export default {
 @use '../styles/mixins' as *;
 
 main {
-    @include container;
-
-    display: flex;
-    align-items: center;
-    height: 130px;
     background-color: $secondaryColor;
 
-    span {
-        font-size: 25px;
-        font-weight: bold;
+    div {
+        @include container;
+        display: flex;
+        align-items: center;
+        height: 130px;
+
+        span {
+            font-size: 25px;
+            font-weight: bold;
+        }
     }
 }
 

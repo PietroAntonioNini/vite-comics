@@ -12,13 +12,15 @@ export default {
 
 <template>
     <nav>
-        <img id="logo" src="/img/dc-logo.png" alt="logo DC">
+        <div>
+            <img id="logo" src="/img/dc-logo.png" alt="logo DC">
 
-        <ul>
-            <li class="links" v-for="link in links">
-                {{ link }}
-            </li>
-        </ul>
+            <ul>
+                <li class="links" v-for="link in links">
+                    {{ link }}
+                </li>
+            </ul>
+        </div>
     </nav>
 </template>
 
@@ -27,40 +29,44 @@ export default {
 @use '../styles/mixins' as *;
 
 nav {
-    @include container;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 115px;
     background-color: white;
 
-    #logo {
-        height: 80px;
-    }
-    
-    ul {
+    div {
+        @include container;
+
         display: flex;
-        gap: 40px;
-        list-style-type: none;
+        justify-content: space-between;
+        align-items: center;
 
-        li {
+        height: 115px;
+
+        #logo {
+            height: 80px;
+        }
+        
+        ul {
             display: flex;
-            align-items: center;
-            height: 115px;
+            gap: 40px;
+            list-style-type: none;
 
-            font-weight: bold;
-            text-transform: uppercase;
-            color: $secondaryColor;
-            border-bottom: 5px solid transparent;
-            cursor: pointer;
+            li {
+                display: flex;
+                align-items: center;
+                height: 115px;
 
-            &:hover {
-                color: $primaryColor;
-                border-bottom: 5px solid $primaryColor;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $secondaryColor;
+                border-bottom: 5px solid transparent;
+                cursor: pointer;
+
+                &:hover {
+                    color: $primaryColor;
+                    border-bottom: 5px solid $primaryColor;
+                }
             }
         }
     }
+    
 }
 </style>
