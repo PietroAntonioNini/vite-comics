@@ -1,21 +1,20 @@
 <script>
 import AppNav from './components/AppNav.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
   components: {
     AppNav,
+    AppMain,
   }
 }
 </script>
 
 <template>
   <AppNav></AppNav>
+
+  <AppMain></AppMain>
 </template>
 
 <style lang="scss">
-
-.container {
-  width: 1300px;
-  margin: auto;
-}
 </style>

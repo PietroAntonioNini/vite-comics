@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <nav class="container">
+    <nav>
         <img id="logo" src="/img/dc-logo.png" alt="logo DC">
 
         <ul>
@@ -24,8 +24,11 @@ export default {
 
 <style lang="scss">
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
-.container {
+nav {
+    @include container;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
