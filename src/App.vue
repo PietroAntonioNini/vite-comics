@@ -12,6 +12,10 @@ export default {
   <AppNav></AppNav>
 </template>
 
-<style>
+<style lang="scss">
 
+.container {
+  width: 1300px;
+  margin: auto;
+}
 </style>
