@@ -4,7 +4,7 @@ export default {
 
     data() {
         return {
-            links: ["Characters", "Comics", "Movies", "Tv", "Games", "Collectibles", "Videos", "Fans", "News", "Shop"],
+            tabs: ["Characters", "Comics", "Movies", "Tv", "Games", "Collectibles", "Videos", "Fans", "News", "Shop"],
         }
     },
 }
@@ -16,8 +16,8 @@ export default {
             <img id="logo" src="/img/dc-logo.png" alt="logo DC">
 
             <ul>
-                <li class="links" v-for="link in links">
-                    {{ link }}
+                <li class="tabs" v-for="tab in tabs">
+                    {{ tab }}
                 </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@ nav {
             gap: 40px;
             list-style-type: none;
 
-            li {
+            .tabs {
                 display: flex;
                 align-items: center;
                 height: 115px;

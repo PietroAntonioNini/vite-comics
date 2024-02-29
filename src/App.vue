@@ -1,13 +1,13 @@
 <script>
 import AppNav from './components/AppNav.vue';
 import AppMain from './components/AppMain.vue';
-import AppBanner from './components/AppBanner.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   components: {
     AppNav,
     AppMain,
-    AppBanner,
+    AppFooter
   }
 }
 </script>
@@ -17,7 +17,7 @@ export default {
 
   <AppMain></AppMain>
 
-  <AppBanner></AppBanner>
+  <AppFooter></AppFooter>
 </template>
 
 <style lang="scss">
